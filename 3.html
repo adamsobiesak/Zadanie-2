@@ -15,7 +15,7 @@
               font-size: 16px;
               padding: 12px 20px 12px 40px;
               border: 1px solid #ddd;
-              margin-bottom: 12px;
+
             }
             
             #myTable {
@@ -45,11 +45,10 @@
             }
 
             .form__button {
-                background: cadetblue;
+                background: moccasin;
                 font-size: 15px;
                 border: none;
                 cursor: pointer;
-                margin-bottom: 12px;
 }
             </style>
             </head>
@@ -57,8 +56,9 @@
             
             <h2>Tabela firm</h2>
             <form class="form">
-                <input type="search" id="myInput" placeholder="Filtruj" title="Wyszukiwarka"/>
-                <button class="form__button" onclick="myFunction()">Filtruj</button>
+                <button class="form__button" onclick="myFunction()">Szukaj</button>
+                <input type="search" id="myInput" placeholder="..." title="Wyszukiwarka"/>
+                
             </form>
             <table id="myTable">
               <tr class="header">
@@ -107,7 +107,7 @@
                 if (td) {
                   txtValue = td.textContent || td.innerText;
                   if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = " ";
+                    tr[i].style.display = "";
                   } else {
                     tr[i].style.display = "none";
                   }
