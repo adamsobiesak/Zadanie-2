@@ -53,11 +53,9 @@
             </style>
             </head>
             <body>
-            
-            <h2>Tabela firm</h2>
             <form class="form">
-                <button class="form__button" onclick="myFunction()">Szukaj</button>
-                <input type="search" id="myInput" placeholder="..." title="Wyszukiwarka"/>
+                <input class="form__button" placeholder="Szukaj" onclick="searcher()"/>
+                <input type="search" id="myInput" placeholder="..."  title="Wyszukiwarka"/>
                 
             </form>
             <table id="myTable">
@@ -96,7 +94,7 @@
             </table>
             
             <script>
-            function myFunction() {
+            function searcher() {
               let input, filter, table, tr, td, i, txtValue;
               input = document.getElementById('myInput');
               filter = input.value.toUpperCase();
