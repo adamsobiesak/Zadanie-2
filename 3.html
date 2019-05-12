@@ -10,7 +10,7 @@
               box-sizing: border-box;
             }
             
-            #myInput {
+            .form__myInput {
               width: 100%;
               font-size: 16px;
               padding: 12px 20px 12px 40px;
@@ -18,7 +18,7 @@
 
             }
             
-            #myTable {
+            .myTable {
               border-collapse: collapse;
               width: 80%;
               margin: 10px auto;
@@ -26,17 +26,17 @@
               font-size: 18px;
             }
             
-            #myTable th, #myTable td {
+            .myTable th, .myTable td {
               text-align: left;
               padding: 12px;
               border-top: 1px solid #ddd;  
             }
             
-            #myTable tr {
+            .myTable tr {
               border-bottom: 1px solid #ddd;  
             }
             
-            #myTable tr.header, #myTable tr:hover {
+            .myTable tr.header, .myTable tr:hover {
               background-color: #f1f1f1;
             }
 
@@ -50,69 +50,71 @@
                 border: none;
                 cursor: pointer;
 }
-            </style>
-            </head>
+    </style>
+</head>
             <body>
-            <div class="form">
-                <button class="form__button" placeholder="Szukaj" onclick="searcher()">Szukaj</button>
-                <input type="search" id="myInput" placeholder="..."  title="Wyszukiwarka"/>
-                
-            </div>
-            <table id="myTable">
-              <tr class="header">
-              </tr>
-              <tr>
-                <td>Walmart</td>
-              </tr>
-              <tr>
-                <td>State Grid</td>
-              </tr>
-              <tr>
-                <td>Sinopec Group</td>
-              </tr>
-              <tr>
-                <td>China National Petroleum</td>
-              </tr>
-              <tr>
-                <td>Royal Dutch Shell</td>
-              </tr>
-              <tr>
-                <td>Toyota Motor</td>
-              </tr>
-              <tr>
-                <td>Volkswagen</td>
-              </tr>
-              <tr>
-                <td>BP</td>
-              </tr>
-              <tr>
-                <td>Exxon Mobil</td>
-              </tr>
-              <tr>
-                <td>Berkshire Hathaway</td>
-              </tr>
-            </table>
-            
-            <script>
-            function searcher() {
-              let input, filter, table, tr, td, i, txtValue;
-              input = document.getElementById('myInput');
-              filter = input.value.toUpperCase();
-              table = document.getElementById('myTable');
-              tr = table.getElementsByTagName('tr');
-              for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName('td')[0];
-                if (td) {
-                  txtValue = td.textContent || td.innerText;
-                  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                  } else {
-                    tr[i].style.display = "none";
-                  }
-                }       
-              }
-            }
-            </script>
-            
+                <div class="form">
+                    <button class="form__button">Szukaj</button>
+                    <input class="form__myInput" type="search" placeholder="...">  
+                </div>
+                <table class="myTable">
+                    <tr>
+                        <td>Walmart</td>
+                    </tr>
+                    <tr>
+                        <td>State Grid</td>
+                    </tr>
+                    <tr>
+                        <td>Sinopec Group</td>
+                    </tr>
+                    <tr>
+                        <td>China National Petroleum</td>
+                    </tr>
+                    <tr>
+                        <td>Royal Dutch Shell</td>
+                    </tr>
+                    <tr>
+                        <td>Toyota Motor</td>
+                    </tr>
+                    <tr>
+                        <td>Volkswagen</td>
+                    </tr>
+                    <tr>
+                        <td>BP</td>
+                    </tr>
+                    <tr>
+                        <td>Exxon Mobil</td>
+                    </tr>
+                    <tr>
+                        <td>Berkshire Hathaway</td>
+                    </tr>
+                </table>
             </body>
-            </html>
+        <script>
+            let input, table, tr, td, i, search_button;
+                input = document.getElementsByClassName("form__myInput")[0];
+                table = document.getElementsByClassName("myTable")[0];
+                tr = table.getElementsByTagName("tr");
+                search_button = document.getElementsByClassName("form__button")[0];
+                function searcher() {
+                    for (i = 0; i < tr.length; i++) {
+                        td = tr[i].getElementsByTagName("td")[0].textContent;
+                        if (td) {
+                            if (td.toUpperCase().indexOf(input.value.toUpperCase()) > -1) {
+                                tr[i].style.display = "";
+                            } else {
+                                tr[i].style.display = "none";
+                            }
+                        }
+                    }
+                }
+                search_button.addEventListener("click", function (event) {
+                    searcher();
+                })
+                input.addEventListener("keydown", function (event) {
+                    if (event.key === "Enter") {
+                        searcher();
+                    }
+                });
+        </script>       
+</html>
