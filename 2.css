@@ -18,7 +18,7 @@
     position: absolute;
     padding: 2em;
     background: lightgray;
-    border: 2px solid black;
+    border: 2px solid #1A1C22;
     border-radius: 11px;
     width: 400px;
     top: 50%;
@@ -28,7 +28,7 @@
   }
  
   .modal__link {
-      color: black;
+      color: #1A1C22;
       position: absolute;
       right: 200px;
       top: 50px;
@@ -43,7 +43,7 @@
     font-size: 21px;
     font-weight: bold;
     background-color: #1A1C22;
-    color: black;
+    color: #1A1C22;
     text-decoration:none;
   }
   
@@ -59,7 +59,7 @@
     font-weight: inherit;
     background-color: lightgray;
     padding: 1em 2em;
-    border: 2px solid black;
+    border: 2px solid #1A1C22;
     border-radius: 11px;
     transition: all 0.3s ease-out;
     text-decoration: none;
@@ -67,7 +67,7 @@
 
   .button:hover {
       color: lightgray;
-      background-color: black;
+      background-color: #1A1C22;
       border: 2px solid lightgrey;
 
   }
